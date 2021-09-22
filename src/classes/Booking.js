@@ -10,9 +10,8 @@ class Booking {
 
   calculateCost(rooms) {
     const room = rooms.find(room =>  this.roomNumber === room.number);
-    console.log(room.costPerNight)
-    const totalCost = room.costPerNight * this.duration;
-    return totalCost;
+      
+    return room.costPerNight * this.duration;
   }
 
 }
