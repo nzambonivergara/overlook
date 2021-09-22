@@ -1,6 +1,10 @@
 /* This is an example of how to import a partial scss file*/
 @import '_variables';
+@import '_reset';
+@import '_mixins';
 
 body {
-  background: $primary-background;
+  background: url('../images/background-picture.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
