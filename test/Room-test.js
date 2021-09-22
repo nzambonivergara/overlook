@@ -52,15 +52,8 @@ describe('Room', () => {
     expect(singleRoom.costPerNight).to.equal(491.14);
   });
 
-  it('should be able to return an image based on its bed size', () => {
-    const fullBed = residentialSuite.returnImageSrc();
-
-    expect(fullBed).to.equal('./images/queen-bed.jpg');
-  });
-
   it('should have a property that stores that image source', () => {
-    const fullBed = residentialSuite.returnImageSrc();
-
+    expect(suite.imageSrc).to.equal('./images/full-bed.jpg');
     expect(singleRoom.imageSrc).to.equal('./images/king-bed.jpg');
   });
 })

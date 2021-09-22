@@ -6,11 +6,7 @@ class Room {
     this.bedSize = room.bedSize;
     this.numBeds = room.numBeds;
     this.costPerNight = room.costPerNight;
-    this.imageSrc = this.returnImageSrc()
-  }
-
-  returnImageSrc() {
-    return `./images/${this.bedSize}-bed.jpg`;
+    this.imageSrc = `./images/${this.bedSize}-bed.jpg`;
   }
 }
 
