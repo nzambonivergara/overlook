@@ -36,7 +36,7 @@ describe('Bookings', () => {
   it('should store a userID', () => {
     expect(booking2.userID).to.be.a('number');
     expect(booking1.userID).to.equal(1);
-    expect(booking2.userID).to.equal(36);
+    expect(booking2.userID).to.equal(2);
   });
 
   it('should store a check in date', () => {
