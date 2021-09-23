@@ -116,4 +116,16 @@ describe('Customer', () => {
     expect(noBookingsMessage).to.equal(expected);
   });
 
+  it('should be able to request new bookings', () => {
+    const newRequests = customer1.returnBookingsRequest("2021/11/05", 3, 4);
+    const expected = [
+      { userID: 1, date: "2021/11/05", roomNumber: 4 },
+      { userID: 1, date: "2021/11/06", roomNumber: 4 },
+      { userID: 1, date: "2021/11/07", roomNumber: 4 }
+    ]
+
+    expect(newRequests).to.be.an('array');
+    expect(newRequests).to.deep.equal(expected);
+  })
+
 })
