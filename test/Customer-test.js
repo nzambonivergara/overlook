@@ -7,9 +7,9 @@ import Booking from '../src/classes/Booking';
 import Customer from '../src/classes/Customer';
 
 describe('Customer', () => {
-  let bookingPast, bookingPresent, bookingUpcoming, bookings;
+  let bookingPast, bookingPresent, bookingUpcoming, bookingCust2, bookings;
   let rooms;
-  let customer1, customer2;
+  let customer1, customer2, customer3;
 
   beforeEach(() => {
     rooms = [
@@ -21,11 +21,13 @@ describe('Customer', () => {
     bookingPast = new Booking(bookingsData[0]);
     bookingPresent = new Booking(bookingsData[3], 3);
     bookingUpcoming = new Booking(bookingsData[4], 3);
+    bookingCust2 = new Booking (bookingsData[1]);
 
-    bookings = [ bookingPast, bookingPresent, bookingUpcoming ]
+    bookings = [ bookingPast, bookingPresent, bookingUpcoming, bookingCust2 ]
 
     customer1 = new Customer(customersData[0]);
     customer2 = new Customer(customersData[1]);
+    customer3 = new Customer(customersData[2]);
   });
 
   it('should be a function', () => {
@@ -128,4 +130,24 @@ describe('Customer', () => {
     expect(newRequests).to.deep.equal(expected);
   })
 
+  it('should be able to calculate how much they have spent in bookings', () => {
+    customer2.getBookings(bookings);
+    const totalSpent = customer2.calculateTotalSpent(rooms);
+
+    expect(totalSpent).to.equal(477.38);
+  })
+
+  it('should be able to calculate how much they have spent in bookings', () => {
+    customer2.getBookings(bookings);
+    const totalSpent = customer2.calculateTotalSpent(rooms);
+
+    expect(totalSpent).to.equal(477.38);
+  })
+
+  it('should return 0 if the customer has no bookings', () => {
+    customer3.getBookings(bookings);
+    const totalSpent = customer3.calculateTotalSpent(rooms);
+
+    expect(totalSpent).to.equal(0);
+  })
 })
