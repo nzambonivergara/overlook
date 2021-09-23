@@ -61,6 +61,27 @@ class Customer {
       return 'We couldn\'t find any upcoming bookings. Book your next adventure!';
     }
   }
+
+  returnBookingsRequest(checkIn, numberOfNights, roomNumber) {
+    const dates = [ checkIn ];
+
+    for (let i = 1; i < numberOfNights; i++) {
+      const addDay = dayjs(checkIn)
+      .add(i, 'day').format('YYYY/MM/DD')
+
+      dates.push(addDay);
+    }
+
+    const bookings = dates.map(date => {
+     return {
+        userID: this.id,
+        date: date,
+        roomNumber: roomNumber
+      };
+    });
+
+    return bookings;
+  }
 }
 
 export default Customer;
