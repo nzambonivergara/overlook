@@ -29,7 +29,7 @@ describe('Bookings', () => {
   });
 
   it('should have an id', () => {
-    expect(booking1.id).to.be.a('string')
+    expect(booking1.id).to.be.a('string');
     expect(booking1.id).to.equal('5fwrgu4i7k55hl6t8');
   });
 
