@@ -82,6 +82,13 @@ class Customer {
 
     return bookings;
   }
+
+  calculateTotalSpent(rooms) {
+    return this.bookings.reduce((acc, booking) => {
+      acc += booking.calculateCost(rooms);
+      return acc;
+    }, 0)
+  }
 }
 
 export default Customer;

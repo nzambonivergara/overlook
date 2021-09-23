@@ -137,13 +137,6 @@ describe('Customer', () => {
     expect(totalSpent).to.equal(477.38);
   })
 
-  it('should be able to calculate how much they have spent in bookings', () => {
-    customer2.getBookings(bookings);
-    const totalSpent = customer2.calculateTotalSpent(rooms);
-
-    expect(totalSpent).to.equal(477.38);
-  })
-
   it('should return 0 if the customer has no bookings', () => {
     customer3.getBookings(bookings);
     const totalSpent = customer3.calculateTotalSpent(rooms);
