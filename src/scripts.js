@@ -3,7 +3,11 @@
 
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
-import dayjs from 'dayjs'
+import './images/twin-bed.jpg';
+import './images/full-bed.jpg';
+import './images/queen-bed.jpg';
+import './images/king-bed.jpg';
+import dayjs from 'dayjs';
 dayjs().format()
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
