@@ -1,15 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Outlook Hotel</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlook Hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__main-title">
+        <span class="material-icons header__icon">grass</span>
+        Overlook</h1>
+      <button class="log-out-button">LOG OUT</button>
+    </header>
+    <main class="main">
+      <section class="search-form-container" id="searchFormContainer">
+        <h2>Book your next stay: </h2>
+        <form class="search-form-container__form" role="search" id="searchForm">
+          <div>
+            <label for="checkIn">Check In:</label>
+            <input type="date" id="checkIn" min="2021-09-24" required>
+            <label for="numOfNights">Number Of Nights: </label>
+            <input type="number" id="numOfNights" min=1 max=30 required>
+            <label for="room-type-select">Select a room type:</label>
+            <select name="room-type" id="room-type-select" required>
+              <option value="all">-All-</option>
+              <option value="single">Single Room</option>
+              <option value="suite">Suite</option>
+              <option value="junior">Junior Suite</option>
+              <option value="residential">Residential Suite</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit" class="form__search-button">SEARCH</button>
+          </div>
+        </form>
+      </section>
+      <section class="bookings-container" id="bookingsContainer">
+        <div>
+          <article class="bookings-container__present-bookings">
+            <h2>Your Present & Upcoming Bookings</h2>
+            <ul id="presentBookingsList">
+              <li>Date: 2020/01/12 Room Number: 14</li>
+            </ul>
+          </article>
+          <article class="bookings-container__past-bookings">
+            <h2>Your Past Bookings</h2>
+            <ul id="pastBookingsList">
+              <li>Date: 2020/01/12 Room Number: 14</li>
+            </ul>
+          </article>
+        </div>
+        <h3>Total Spent: $<span>1500</span></h3>
+      </section>
+      <section class="available-rooms-container hidden" id="searchResultsContainer">
+        <h2>Available Rooms</h2>
+        <div class="available-rooms-container__rooms-container" id="availableRoomsContainer">
+          <article class="rooms-container__room-card">
+            <img src="./images/full-bed.jpg">
+            <ul>
+              <li>Room Number: 2</li>
+              <li>Room type: Suite</li>
+              <li>Bidet: yes</li>
+              <li>Bed size: full</li>
+              <li>Number of beds: 2</li>
+              <li>Cost per night: $477.38</li>
+            </ul>
+            <button class="book-button" id="bookButton">BOOK NOW</button>
+          </article>
+        </div>
+      </section>
+    </main>
+    <script src="bundle.js"></script>
 
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
-</body>
+  </body>
 </html>
