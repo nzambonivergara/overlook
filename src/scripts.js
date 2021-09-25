@@ -1,16 +1,34 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
+import { loadRooms, loadAllCustomers, loadSingleCustumer, loadBookings, addNewBookings } from './apiCalls';
 import './images/twin-bed.jpg';
 import './images/full-bed.jpg';
 import './images/queen-bed.jpg';
 import './images/king-bed.jpg';
 import dayjs from 'dayjs';
+import Customer from './classes/Customer';
+import Hotel from './classes/Hotel';
+
 dayjs().format()
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-// import './images/turing-logo.png'
 
+let hotel;
+let currentCustomer;
 
-console.log('This is the JavaScript entry file - your code begins here.');
+window.addEventListener('load', loadData);
+
+function loadData() {
+  Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
+  .then(data => {
+    hotel = new Hotel(data[0], data[1], data[2]);
+    hotel.getAllRooms();
+    hotel.getAllBookings();
+    getCustomer(10);
+  })
+}
+
+function getCustomer(id) {
+  loadSingleCustomer(id)
+  .then(customerData => {
+    currentCustomer = new Customer(customerData);
+    currentCustomer.getBookings(hotel.bookings);
+  })
+}
