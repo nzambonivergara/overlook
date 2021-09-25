@@ -42,20 +42,20 @@
       </section>
       <section class="bookings-container" id="bookingsContainer">
         <div>
+          <article class="bookings-container__upcoming-bookings">
+            <h2>Your Upcoming Bookings</h2>
+            <ul id="upcomingBookingsList"></ul>
+          </article>
           <article class="bookings-container__present-bookings">
-            <h2>Your Present & Upcoming Bookings</h2>
-            <ul id="presentBookingsList">
-              <li>Date: 2020/01/12 Room Number: 14</li>
-            </ul>
+            <h2>Your Present Bookings</h2>
+            <ul id="presentBookingsList"></ul>
           </article>
           <article class="bookings-container__past-bookings">
             <h2>Your Past Bookings</h2>
-            <ul id="pastBookingsList">
-              <li>Date: 2020/01/12 Room Number: 14</li>
-            </ul>
+            <ul id="pastBookingsList"></ul>
           </article>
         </div>
-        <h3>Total Spent: $<span>1500</span></h3>
+        <h3>Total Spent: $<span id="totalSpent">1500</span></h3>
       </section>
       <section class="available-rooms-container hidden" id="searchResultsContainer">
         <h2>Available Rooms</h2>
