@@ -1,10 +1,168 @@
-/* This is an example of how to import a partial scss file*/
 @import '_variables';
 @import '_reset';
 @import '_mixins';
 
+html {
+  @include flex-column();
+  height: 100%;
+}
+
 body {
-  background: url('../images/background-picture.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  @include flex-column();
+  flex: 1;
+  height: 100%;
+  color: $primary-color;
+  font-family: $primary-font;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  &::before {
+    content: '';
+    background-image: url('../images/background-picture.jpg');
+    opacity: 0.5;
+    background-size: cover;
+    background-repeat: repeat;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+  }
+}
+
+.header {
+  @include flex-cross-axis-center;
+  padding: 0 30px;
+  position: relative;
+  justify-content: space-between;
+
+  button {
+    @include bold-font()
+  }
+}
+
+.main {
+  position: relative;
+  @include flex-column();
+  @include flex-cross-axis-center();
+  box-sizing: border-box;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.search-form-container {
+  @include flex-column();
+  @include flex-cross-axis-center();
+  @include square(200px, 750px);
+  justify-content: center;
+  margin-right: 100px;
+  margin-left:100px;
+  margin-top: 70px;
+  border-radius: 10px;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  form {
+    @include flex-column();
+    @include bold-font();
+    width: 100%;
+
+    div {
+      display: flex;
+      justify-content: center;
+    }
+
+    select,
+    label,
+    input {
+      margin-left: 10px;
+    }
+  }
+}
+
+button {
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.log-out-button,
+.book-button,
+.form__search-button {
+  background-color: $white;
+  border: 1px solid $primary-color-x-light;
+  border-radius: 5px;
+  color: $primary-color;
+  transition: $primary-transition;
+  margin-bottom: 5px;
+  width: 150px;
+
+  &:hover {
+    background-color: $primary-color;
+    color: $white;
+  }
+}
+
+.log-out-button {
+  background-color: transparent;
+  border: 0;
+}
+
+.form__search-button {
+  width: 200px;
+  margin-top: 25px;
+}
+
+.bookings-container {
+  @include flex-column();
+  width: 900px;
+  border-radius: 10px;
+  margin-top: 25px;
+
+  div {
+    display: flex;
+
+    article {
+      @include flex-column();
+      @include flex-cross-axis-center();
+      width: 100%;
+    }
+  }
+
+  h3 {
+    text-align: center;
+    margin-right: 20px;
+  }
+}
+
+.available-rooms-container {
+  @include flex-column();
+  @include flex-cross-axis-center();
+
+  .available-rooms-container__rooms-container {
+    display: flex;
+    gap: 30px;
+    width: 85%;
+    overflow-x: scroll;
+  }
+}
+
+.rooms-container__room-card {
+  @include flex-column();
+  @include flex-cross-axis-center();
+
+  img {
+    @include square(150px, 200px);
+    border-radius: 15px;
+  }
+}
+
+.hidden {
+  display: none;
 }
