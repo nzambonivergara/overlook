@@ -22,12 +22,12 @@ class Customer {
       .add(booking.duration, 'day');
 
       return checkOut.isBefore(today);
-    })
+    }).map(booking => `Date: ${booking.checkInDate} Room Number: ${booking.roomNumber}`)
 
     if (pastBookings.length) {
       return pastBookings;
     } else {
-      return 'We couldn\'t find any past bookings.'
+      return ['We couldn\'t find any past bookings.']
     }
   }
 
@@ -39,12 +39,12 @@ class Customer {
       .add(booking.duration, 'day')
 
       return today.isBetween(booking.checkInDate, checkOut)
-    })
+    }).map(booking => `Date: ${booking.checkInDate} Room Number: ${booking.roomNumber}`)
 
     if (presentBookings.length) {
-      return presentBookings
+      return presentBookings;
     } else {
-      return 'We couldn\'t find any present bookings.';
+      return ['We couldn\'t find any present bookings.'];
     }
   }
 
@@ -53,12 +53,12 @@ class Customer {
 
     const upcomingBookings = this.bookings.filter(booking => {
       return dayjs(booking.checkInDate).isAfter(today);
-    })
+    }).map(booking => `Date: ${booking.checkInDate} Room Number: ${booking.roomNumber}`)
 
     if (upcomingBookings.length) {
       return upcomingBookings;
     } else {
-      return 'We couldn\'t find any upcoming bookings. Book your next adventure!';
+      return ['We couldn\'t find any upcoming bookings. Book your next adventure!'];
     }
   }
 

@@ -48,7 +48,7 @@ function addNewBookings(userId, date, roomNumber) {
 export {
   loadRooms,
   loadAllCustomers,
-  loadSingleCustumer,
+  loadSingleCustomer,
   loadBookings,
   addNewBookings
 }

@@ -64,58 +64,60 @@ describe('Customer', () => {
 
   });
 
-  it('should be able to get their past bookings', () => {
+  it('should be able to get the details of their past bookings', () => {
     customer1.getBookings(bookings);
     const pastBookings = customer1.getPastBookings();
+    const expected = [ `Date: ${bookingPast.checkInDate} Room Number: ${bookingPast.roomNumber}` ]
 
     expect(pastBookings).to.be.an('array');
-    expect(pastBookings).to.deep.equal([ bookingPast ]);
-    expect(pastBookings[0]).to.be.an.instanceOf(Booking);
-    expect(pastBookings[0]).to.deep.equal(bookingPast);
+    expect(pastBookings).to.deep.equal(expected);
+    expect(pastBookings[0]).to.be.a('string');
+    expect(pastBookings[0]).to.equal(expected[0]);
   });
 
   it('should be return a message if no past bookings are found', () => {
-    const expected = 'We couldn\'t find any past bookings.';
+    const expected = ['We couldn\'t find any past bookings.'];
     const noBookingsMessage = customer2.getPastBookings();
 
-    expect(noBookingsMessage).to.equal(expected);
+    expect(noBookingsMessage).to.deep.equal(expected);
   });
 
-  it('should be able to get their current bookings', () => {
+  it('should be able to get the details of their current bookings', () => {
     customer1.getBookings(bookings);
     const presentBookings = customer1.getPresentBookings();
+    const expected = [ `Date: ${bookingPresent.checkInDate} Room Number: ${bookingPresent.roomNumber}` ]
 
     expect(presentBookings).to.be.an('array');
-    expect(presentBookings.length).to.equal(1);
-    expect(presentBookings).to.deep.equal([ bookingPresent ]);
-    expect(presentBookings[0]).to.be.an.instanceOf(Booking);
-    expect(presentBookings[0]).to.deep.equal(bookingPresent);
+    expect(presentBookings).to.deep.equal(expected);
+    expect(presentBookings[0]).to.be.a('string');
+    expect(presentBookings[0]).to.equal(expected[0]);
   });
 
   it('should be return a message if no present bookings are found', () => {
     customer2.getBookings(bookings);
-    const expected = 'We couldn\'t find any present bookings.';
+    const expected = ['We couldn\'t find any present bookings.'];
     const noBookingsMessage = customer2.getPresentBookings();
 
-    expect(noBookingsMessage).to.equal(expected);
+    expect(noBookingsMessage).to.deep.equal(expected);
   });
 
-  it('should be able to get their upcoming bookings', () => {
+  it('should be able to get the details of their upcoming bookings', () => {
     customer1.getBookings(bookings);
     const upcomingBookings = customer1.getUpcomingBookings();
+    const expected = [ `Date: ${bookingUpcoming.checkInDate} Room Number: ${bookingUpcoming.roomNumber}` ]
 
     expect(upcomingBookings).to.be.an('array');
-    expect(upcomingBookings).to.deep.equal([ bookingUpcoming ]);
-    expect(upcomingBookings[0]).to.be.an.instanceOf(Booking);
-    expect(upcomingBookings[0]).to.deep.equal(bookingUpcoming);
+    expect(upcomingBookings).to.deep.equal(expected);
+    expect(upcomingBookings[0]).to.be.a('string');
+    expect(upcomingBookings[0]).to.equal(expected[0]);
   });
 
   it('should be return a message if no upcoming bookings are found', () => {
-    const expected = 'We couldn\'t find any upcoming bookings. Book your next adventure!';
+    const expected = ['We couldn\'t find any upcoming bookings. Book your next adventure!'];
     customer2.getBookings(bookings);
     const noBookingsMessage = customer2.getUpcomingBookings();
 
-    expect(noBookingsMessage).to.equal(expected);
+    expect(noBookingsMessage).to.deep.equal(expected);
   });
 
   it('should be able to request new bookings', () => {

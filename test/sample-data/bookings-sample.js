@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export const bookingsData = [
   {
     "id": "5fwrgu4i7k55hl6t8",
@@ -23,7 +25,7 @@ export const bookingsData = [
   {
     "id": "3fwrgu4i7k33hl6tf",
     "userID": 1,
-    "date": "2021/09/22",
+    "date": dayjs(),
     "roomNumber": 2,
     "roomServiceCharges": []
   },
