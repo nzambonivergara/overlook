@@ -18,19 +18,15 @@ window.addEventListener('load', loadData);
 function loadData() {
   Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
   .then(data => {
-    getHotel(data[0], data[1], data[2]);
-    getCustomer();
+    hotel = new Hotel(data[0], data[1], data[2]);
+    hotel.getAllRooms();
+    hotel.getAllBookings();
+    getCustomer(10);
   })
 }
 
-function getHotel(roomData, bookingData, customerData) {
-  hotel = new Hotel(roomData, bookingData, customerData);
-  hotel.getAllRooms();
-  hotel.getAllBookings();
-}
-
-function getCustomer() {
-  loadSingleCustomer(10)
+function getCustomer(id) {
+  loadSingleCustomer(id)
   .then(customerData => {
     currentCustomer = new Customer(customerData);
     currentCustomer.getBookings(hotel.bookings);
