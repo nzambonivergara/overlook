@@ -43,7 +43,7 @@ const domUpdates = {
           <li>Bidet: ${bidet}</li>
           <li>Bed size: ${room.bedSize}</li>
           <li>Number of beds: ${room.numBeds}</li>
-          <li>Cost per night: $${room.costPerNight}</li>
+          <li>Cost per night: $${room.costPerNight.toFixed(2)}</li>
         </ul>
         <button class="book-button">BOOK NOW</button>
       </article>`
