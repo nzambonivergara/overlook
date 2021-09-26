@@ -65,6 +65,13 @@ function searchRooms(event) {
   renderAvailableRooms(availableRooms);
 }
 
-function bookRoom() {
-  
+function bookRoom(event) {
+  const target = event.target;
+  const roomNumber = parseInt(target.parentNode.id);
+
+  if (target.classList.contains('book-button')) {
+     currentCustomer.returnBookingsRequest(form[0].value, form[1].value, roomNumber).map(booking => {
+       addNewBookings(booking.userID, booking.date, booking.roomNumber)
+     })
+  }
 }
