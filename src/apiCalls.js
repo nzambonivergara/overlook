@@ -41,7 +41,7 @@ function addNewBookings(userId, date, roomNumber) {
     }
   })
   .then(response => response.json())
-  .then(data => data)
+  .then(data => data.newBooking)
   .catch(error => console.log(error))
 }
 

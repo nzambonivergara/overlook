@@ -10,7 +10,7 @@ import Hotel from './classes/Hotel';
 import domUpdates from './domUpdates';
 import MicroModal from 'micromodal';
 
-const { totalSpent, upcomingBookingsList, presentBookings, pastBookingsList, renderBookings } = domUpdates;
+const { form, searchResultsContainer, availableRoomsContainer, bookingsContainer, totalSpent, upcomingBookingsList, presentBookings, pastBookingsList, hide, show, renderBookings, renderAvailableRooms } = domUpdates;
 
 dayjs().format()
 
@@ -18,6 +18,8 @@ let hotel;
 let currentCustomer;
 
 window.addEventListener('load', loadData);
+form.addEventListener('submit', searchRooms);
+availableRoomsContainer.addEventListener('click', bookRoom);
 
 function loadData() {
   Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
@@ -26,6 +28,7 @@ function loadData() {
     hotel.getAllRooms();
     hotel.getAllBookings();
     getCustomer(5);
+    form[0].min = dayjs().format('YYYY-MM-DD');
   })
 }
 
@@ -47,4 +50,29 @@ function displayBookingsInformation() {
   renderBookings(pastBookingsList, pastBookings);
   renderBookings(presentBookingsList, presentBookings);
   renderBookings(upcomingBookingsList, upcomingBookings);
+}
+
+function searchRooms(event) {
+  event.preventDefault()
+  hide(bookingsContainer);
+  show(searchResultsContainer);
+
+  let availableRooms = hotel.getAvailableRooms(form[0].value, form[1].value)
+
+  if (form[2].value !== 'all') {
+    availableRooms = hotel.filterRoomsByType(availableRooms, form[2].value)
+  }
+
+  renderAvailableRooms(availableRooms);
+}
+
+function bookRoom(event) {
+  const target = event.target;
+  const roomNumber = parseInt(target.parentNode.id);
+
+  if (target.classList.contains('book-button')) {
+     currentCustomer.returnBookingsRequest(form[0].value, form[1].value, roomNumber).map(booking => {
+       addNewBookings(booking.userID, booking.date, booking.roomNumber)
+     })
+  }
 }

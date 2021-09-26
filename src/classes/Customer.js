@@ -63,7 +63,7 @@ class Customer {
   }
 
   returnBookingsRequest(checkIn, numberOfNights, roomNumber) {
-    const dates = [ checkIn ];
+    const dates = [ dayjs(checkIn).format('YYYY/MM/DD') ];
 
     for (let i = 1; i < numberOfNights; i++) {
       const addDay = dayjs(checkIn)
@@ -71,7 +71,7 @@ class Customer {
 
       dates.push(addDay);
     }
-
+  
     const bookings = dates.map(date => {
      return {
         userID: this.id,
