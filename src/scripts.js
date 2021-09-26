@@ -8,6 +8,7 @@ import dayjs from 'dayjs';
 import Customer from './classes/Customer';
 import Hotel from './classes/Hotel';
 import domUpdates from './domUpdates';
+import MicroModal from 'micromodal';
 
 const { totalSpent, upcomingBookingsList, presentBookings, pastBookingsList, renderBookings } = domUpdates;
 
