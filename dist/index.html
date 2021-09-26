@@ -159,7 +159,27 @@
         </div>
       </section>
     </main>
+    <div class="modal" id="confirm-booking-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <dialog class="modal__container" aria-modal="true" aria-labelledby="confirm-booking" >
+          <header class="modal__header">
+            <h2 class="modal__title" id="confirm-booking">Confirm Your Booking</h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="confirmation-message">
+            <p>Check In: </p>
+            <p>Number of nights: </p>
+            <p>Room #: </p>
+            <p>Cost per night: $ </p>
+            <p>Click YES, to confirm and update your bookings.</p>
+          </main>
+          <footer class="modal__footer">
+            <button class="modal__button" id="confirmBookingButton" aria-label="Confirm booking">YES</button>
+            <button class="modal__button" data-micromodal-close aria-label="Close this dialog window">CANCEL</button>
+          </footer>
+        </dialog>
+      </div>
+    </div>
     <script src="bundle.js"></script>
-
   </body>
 </html>
