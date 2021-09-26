@@ -161,9 +161,11 @@ button {
 
   .available-rooms-container__rooms-container {
     display: flex;
+    justify-content: center;
     gap: 30px;
     width: 900px;
     overflow-x: scroll;
+    padding: 0 125px;
   }
 }
 
@@ -174,6 +176,7 @@ button {
   img {
     @include square(150px, 200px);
     border-radius: 15px;
+    filter: brightness(0.9);
   }
 }
 
