@@ -1,105 +1,74 @@
-# Webpack Starter Kit
+# The Overlook Hotel
 
-## Clone This Repo
+- [Project Spec](https://frontend.turing.edu/projects/overlook.html)
 
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
+## Abstract
 
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
+Welcome to the Overlook Hotel! This website allows users to login and see their past, current, and upcoming bookings. Users can search for available rooms in upcoming dates and filter those by room type. After browsing the rooms, users can add a new booking. After confirmation, they will go back to their updated bookings dashboard.
 
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
+## Snapshots of the Application
 
-## Setup
+[Watch the application in action!](https://www.loom.com/share/043a4b1145b842dba1ffcd479016ad13)
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
+![Login Page](https://user-images.githubusercontent.com/83611094/135000497-d139b4e7-18e9-47d7-a2e3-75cee91d87b2.png)
 
-Then install the library dependencies. Run:
+![Overlook Hotel Dashboard](https://user-images.githubusercontent.com/83611094/135000187-4de01694-8ca6-40d3-8982-a1c437fd2bb5.png)
 
-```bash
-npm install
-```
+![Search Page](https://user-images.githubusercontent.com/83611094/135000531-896ab327-686e-4cf8-9d8f-3a6b8dc94d36.png)
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+![Confirmation Step](https://user-images.githubusercontent.com/83611094/135000622-d75c68cf-aa7f-404f-8066-c69387991fd9.png)
 
-## Where to Add Your Code
+## Technologies
 
-### JavaScript
+- Mocha
+- Chai
+- HTML
+- JavaScript
+- SCSS
+- Fetch API
+- ESlint
+- Third party packages:
+    - [Micromodal js](https://micromodal.vercel.app/)
+    - [Dayjs](https://day.js.org/)
+- Github Project Board Project Management
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+## Install & Set Up
 
-**Create all of your feature code files in the `src` directory.**
+### Backend Set Up
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+1. Go to this [repository](https://github.com/turingschool-examples/overlook-api)
+2. Follow Set Up instructions.
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+### Frontend Set Up
 
-### HTML
+1. Clone down this repository.
+  ```
+  git clone git@github.com:nzambonivergara/overlook.git
+  ```
+2. In your terminal, run:
+  ```
+  npm install
+  npm start
+  ```
+3. Enter the following url in your browser: http://localhost:8080/
+4. Explore the website.
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
 
-### CSS (SCSS/SASS)
+## Wins
 
-This project is setup to use SCSS/Sass files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
+- Ensuring the code architecture was planned before I started coding helped me keep my code organized and made the coding process faster.
+- Utilizing third party packages allowed me to handle dates and allow for a better user experience.
+- Ensuring accessibility principles were met and were considered from the planning process of the application.
+- Successfully utilizing Fetch API and SCSS.
 
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
+## Challenges
 
-### Images
+- Planning out the classes and their functionality was an interesting challenge and time consuming, but I found that it was worth the planning time.
+- Planning out project with Github Project Board and anticipating how long each task will take to complete.
+- Error handling and ensuring that the user cannot POST the wrong data
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+## Future Features
 
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+- Adding a manager login and dashboard where the manager can search users and handle their bookings.
+- Integrating a third party package for the available rooms carousel.
+- Improving the aesthetic and user interface.

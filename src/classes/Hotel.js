@@ -1,6 +1,5 @@
 import Room from './Room';
 import Booking from './Booking';
-import Customer from './Customer';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 

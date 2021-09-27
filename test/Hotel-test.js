@@ -4,7 +4,6 @@ import { bookingsData } from './sample-data/bookings-sample';
 import { customersData } from './sample-data/customers-data'
 import Room from '../src/classes/Room';
 import Booking from '../src/classes/Booking';
-import Customer from '../src/classes/Customer';
 import Hotel from '../src/classes/Hotel';
 
 describe('Hotel', () => {
@@ -126,7 +125,6 @@ describe('Hotel', () => {
       "roomNumber": 23,
       "roomServiceCharges": []
     })
-
 
     expect(originalNumberOfBookings).to.equal(5);
     expect(updatedNumberOfBookings).to.equal(8);
