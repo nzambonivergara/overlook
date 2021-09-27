@@ -8,7 +8,15 @@ Welcome to the Overlook Hotel! This website allows users to login and see their 
 
 ## Snapshots of the Application
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/043a4b1145b842dba1ffcd479016ad13" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+[Watch the application in action!](https://www.loom.com/share/043a4b1145b842dba1ffcd479016ad13)
+
+![Login Page](https://user-images.githubusercontent.com/83611094/135000497-d139b4e7-18e9-47d7-a2e3-75cee91d87b2.png)
+
+![Overlook Hotel Dashboard](https://user-images.githubusercontent.com/83611094/135000187-4de01694-8ca6-40d3-8982-a1c437fd2bb5.png)
+
+![Search Page](https://user-images.githubusercontent.com/83611094/135000531-896ab327-686e-4cf8-9d8f-3a6b8dc94d36.png)
+
+![Confirmation Step](https://user-images.githubusercontent.com/83611094/135000622-d75c68cf-aa7f-404f-8066-c69387991fd9.png)
 
 ## Technologies
 
