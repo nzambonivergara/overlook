@@ -23,6 +23,7 @@ const {
   upcomingBookingsList,
   presentBookings,
   pastBookingsList,
+  bookingsButton,
   hide,
   show,
   renderBookings,
@@ -36,7 +37,8 @@ let currentCustomer;
 window.addEventListener('load', loadData);
 searchForm.addEventListener('submit', searchRooms);
 availableRoomsContainer.addEventListener('click', bookRoom);
-confirmationButton.addEventListener('click', requestBookings)
+confirmationButton.addEventListener('click', requestBookings);
+bookingsButton.addEventListener('click', displayBookings);
 
 function loadData() {
   Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
@@ -121,9 +123,13 @@ function requestBookings(event) {
     hotel.addNewBookings(response);
 
     MicroModal.close('confirm-booking-modal');
-    hide(searchResultsContainer);
-    show(bookingsContainer);
-    searchForm.reset();
-    displayBookingsInformation();
+    displayBookings();
   })
+}
+
+function displayBookings() {
+  hide(searchResultsContainer);
+  show(bookingsContainer);
+  searchForm.reset();
+  displayBookingsInformation();
 }
