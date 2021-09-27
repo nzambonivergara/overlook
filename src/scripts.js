@@ -13,6 +13,7 @@ import MicroModal from 'micromodal';
 const {
   loginForm,
   loginErrorMessage,
+  logoutButton,
   searchForm,
   searchResultsContainer,
   availableRoomsContainer,
@@ -39,7 +40,8 @@ window.addEventListener('load', displayLogin);
 loginForm.addEventListener('submit', validateLogin);
 searchForm.addEventListener('submit', searchRooms);
 availableRoomsContainer.addEventListener('click', bookRoom);
-confirmationButton.addEventListener('click', requestBookings)
+confirmationButton.addEventListener('click', requestBookings);
+logoutButton.addEventListener('click', logOut);
 
 function displayLogin() {
   MicroModal.show('login-modal');
@@ -59,6 +61,10 @@ function validateLogin() {
     show(loginErrorMessage);
     loginForm.reset();
   }
+}
+
+function logOut() {
+  window.location.reload();
 }
 
 function loadData() {
