@@ -13,9 +13,12 @@
   <body>
     <header class="header">
       <h1 class="header__main-title">
-        <span class="material-icons header__icon">grass</span>
+        <span class="material-icons header__icon" aria-label="overlook-hotel-logo">grass</span>
         Overlook</h1>
-      <button class="log-out-button">LOG OUT</button>
+      <button class="log-out-button">
+        <p>LOG OUT</p>
+        <span class="material-icons" aria-label="logout-icon">logout</span>
+      </button>
     </header>
     <main class="main">
       <section class="search-form-container" id="searchFormContainer">
@@ -55,12 +58,15 @@
             <ul id="pastBookingsList"></ul>
           </article>
         </div>
-        <h3>Total Spent: $<span id="totalSpent">1500</span></h3>
+        <h3>Total Spent: $<span id="totalSpent"></span></h3>
       </section>
       <section class="search-results-container hidden" id="searchResultsContainer">
         <h2 id="availableRoomsTitle">Available Rooms</h2>
-        <div class="available-rooms-container__rooms-container" id="availableRoomsContainer"></div>
+        <div class="search-results-container__rooms-container" id="availableRoomsContainer"></div>
         <h2 id="noRoomsMessage">Sorry, we were unable to find rooms. Please adjust your search.</h2>
+        <button class="bookings-button" id="bookingsButton">
+          <span class="material-icons"  aria-label="back-to-my-bookings">reply</span>
+        </button>
       </section>
     </main>
     <div class="modal" id="confirm-booking-modal" aria-hidden="true">
