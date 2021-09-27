@@ -191,6 +191,10 @@ button {
   }
 }
 
+.error-message {
+  color: red;
+}
+
 .bookings-button {
   @include flex-cross-axis-center();
   position: fixed;
@@ -276,6 +280,20 @@ button {
 .modal__button:hover {
   background-color: $white;
   color: $primary-color;
+}
+
+.login__modal {
+  @include flex-column();
+  @include flex-cross-axis-center();
+  @include square(400px, 1000px);
+  justify-content: center;
+}
+
+.login-form {
+  @include flex-column();
+  @include flex-cross-axis-center();
+  justify-content: space-evenly;
+  height: 200px;
 }
 
 .modal,

@@ -15,7 +15,7 @@
       <h1 class="header__main-title">
         <span class="material-icons header__icon" aria-label="Overlook hotel logo">grass</span>
         Overlook</h1>
-      <button class="log-out-button">
+      <button class="log-out-button" id="logoutButton">
         <p>log out</p>
         <span class="material-icons" aria-label="Logout icon">logout</span>
       </button>
@@ -82,6 +82,29 @@
             <button class="modal__button" id="confirmBookingButton" aria-label="Confirm booking">YES</button>
             <button class="modal__button" data-micromodal-close aria-label="Close this dialog window">CANCEL</button>
           </footer>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="login-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1">
+        <div class="modal__container login__modal" aria-modal="true" aria-labelledby="login-modal" >
+          <header class="modal__header">
+            <h2 class="modal__title" id="login-modal">WELCOME TO THE OVERLOOK HOTEL!</h2>
+          </header>
+          <main class="modal__content">
+            <form role="login" class="login-form" id="loginForm">
+              <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" required>
+              </div>
+              <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" minlength="12" maxlength="12" required>
+              </div>
+              <button type="submit" class="modal__button" id="loginButton">LOG IN</button>
+              <p class="error-message hidden" id="loginErrorMessage">**Please enter a valid username or password.**</p>
+            </form>
+          </main>
         </div>
       </div>
     </div>
