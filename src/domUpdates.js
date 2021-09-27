@@ -3,6 +3,8 @@ const domUpdates = {
 
   loginErrorMessage: document.getElementById('loginErrorMessage'),
 
+  logoutButton: document.getElementById('logoutButton'),
+
   searchForm: document.getElementById('searchForm'),
 
   searchResultsContainer: document.getElementById('searchResultsContainer'),
