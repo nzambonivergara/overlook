@@ -90,6 +90,7 @@ button {
   padding: 8px;
 }
 
+.bookings-button,
 .log-out-button,
 .book-button,
 .form__search-button {
@@ -108,8 +109,14 @@ button {
 }
 
 .log-out-button {
+  @include flex-cross-axis-center();
   background-color: transparent;
   border: 0;
+
+  p {
+    text-transform: uppercase;
+    margin: 0;
+  }
 }
 
 .form__search-button {
@@ -160,13 +167,11 @@ button {
 
 }
 
-.available-rooms-container__rooms-container {
+.search-results-container__rooms-container {
   display: flex;
-  justify-content: center;
   gap: 30px;
   width: 1000px;
   overflow-x: auto;
-  padding-left: 75px;
 
   ul {
     @include bold-font();
@@ -188,6 +193,16 @@ button {
 
 .error-message {
   color: red;
+}
+
+.bookings-button {
+  @include flex-cross-axis-center();
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
 
 .modal.is-open {

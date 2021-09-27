@@ -11,8 +11,7 @@ const domUpdates = {
 
   availableRoomsTitle: document.getElementById('availableRoomsTitle'),
 
-  availableRoomsContainer:
-  document.getElementById('availableRoomsContainer'),
+  availableRoomsContainer: document.getElementById('availableRoomsContainer'),
 
   noRoomsMessage:  document.getElementById('noRoomsMessage'),
 
@@ -29,6 +28,8 @@ const domUpdates = {
   confirmationMessage: document.getElementById('confirmation-message'),
 
   confirmationButton: document.getElementById('confirmBookingButton'),
+
+  bookingsButton: document.getElementById('bookingsButton'),
 
   show(element) {
     element.classList.remove('hidden');
@@ -50,8 +51,8 @@ const domUpdates = {
     rooms.forEach(room => {
       const bidet = room.hasBidet ? 'yes' : 'no';
       availableRoomsContainer.innerHTML +=
-      `<article class="rooms-container__room-card" id=${room.number}>
-        <img src=${room.imageSrc}>
+      `<article class="rooms-container__room-card" id=${room.number} tabindex="0">
+        <img src=${room.imageSrc} alt="${room.bedSize} bed bedroom">
         <ul>
           <li>Room #${room.number}</li>
           <li>Type: ${room.roomType}</li>
@@ -75,7 +76,6 @@ const domUpdates = {
     `
     MicroModal.show('confirm-booking-modal');
   }
-
 }
 
 

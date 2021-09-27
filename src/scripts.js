@@ -26,6 +26,7 @@ const {
   upcomingBookingsList,
   presentBookings,
   pastBookingsList,
+  bookingsButton,
   hide,
   show,
   renderBookings,
@@ -41,6 +42,7 @@ loginForm.addEventListener('submit', validateLogin);
 searchForm.addEventListener('submit', searchRooms);
 availableRoomsContainer.addEventListener('click', bookRoom);
 confirmationButton.addEventListener('click', requestBookings);
+bookingsButton.addEventListener('click', displayBookings);
 logoutButton.addEventListener('click', logOut);
 
 function displayLogin() {
@@ -150,9 +152,13 @@ function requestBookings(event) {
     hotel.addNewBookings(response);
 
     MicroModal.close('confirm-booking-modal');
-    hide(searchResultsContainer);
-    show(bookingsContainer);
-    searchForm.reset();
-    displayBookingsInformation();
+    displayBookings();
   })
+}
+
+function displayBookings() {
+  hide(searchResultsContainer);
+  show(bookingsContainer);
+  searchForm.reset();
+  displayBookingsInformation();
 }
