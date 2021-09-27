@@ -10,7 +10,25 @@ import Hotel from './classes/Hotel';
 import domUpdates from './domUpdates';
 import MicroModal from 'micromodal';
 
-const { searchForm, searchResultsContainer, availableRoomsContainer, bookingsContainer, totalSpent, confirmationMessage, confirmationButton, upcomingBookingsList, presentBookings, pastBookingsList, hide, show, renderBookings, renderAvailableRooms, renderModalInformation } = domUpdates;
+const {
+  searchForm,
+  searchResultsContainer,
+  availableRoomsContainer,
+  availableRoomsTitle,
+  noRoomsMessage,
+  bookingsContainer,
+  totalSpent,
+  confirmationMessage,
+  confirmationButton,
+  upcomingBookingsList,
+  presentBookings,
+  pastBookingsList,
+  hide,
+  show,
+  renderBookings,
+  renderAvailableRooms,
+  renderModalInformation
+} = domUpdates;
 
 let hotel;
 let currentCustomer;
@@ -56,13 +74,24 @@ function searchRooms(event) {
   hide(bookingsContainer);
   show(searchResultsContainer);
 
+  const roomContainer = document.getElementById('availableRoomsContainer')
+
   let availableRooms = hotel.getAvailableRooms(searchForm[0].value, searchForm[1].value);
 
   if (searchForm[2].value !== 'all') {
     availableRooms = hotel.filterRoomsByType(availableRooms, searchForm[2].value)
   }
 
-  renderAvailableRooms(availableRooms);
+  if (availableRooms.length) {
+    renderAvailableRooms(availableRooms);
+    show(availableRoomsTitle);
+    show(availableRoomsContainer);
+    hide(noRoomsMessage);
+  } else {
+    show(noRoomsMessage);
+    hide(availableRoomsTitle);
+    hide(roomContainer);
+  }
 }
 
 function bookRoom(event) {
