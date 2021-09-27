@@ -11,6 +11,8 @@ import domUpdates from './domUpdates';
 import MicroModal from 'micromodal';
 
 const {
+  loginForm,
+  loginErrorMessage,
   searchForm,
   searchResultsContainer,
   availableRoomsContainer,
@@ -33,10 +35,31 @@ const {
 let hotel;
 let currentCustomer;
 
-window.addEventListener('load', loadData);
+window.addEventListener('load', displayLogin);
+loginForm.addEventListener('submit', validateLogin);
 searchForm.addEventListener('submit', searchRooms);
 availableRoomsContainer.addEventListener('click', bookRoom);
 confirmationButton.addEventListener('click', requestBookings)
+
+function displayLogin() {
+  MicroModal.show('login-modal');
+  loadData();
+}
+
+function validateLogin() {
+  event.preventDefault();
+  const username = loginForm[0].value;
+  const password = loginForm[1].value;
+  const id = parseInt(username.split('customer')[1]);
+
+  if ((username.length === 9 || username.length === 10) &&
+      (0 < id && id < 51) && password === 'overlook2021') {
+    getCustomer(id);
+  } else {
+    show(loginErrorMessage);
+    loginForm.reset();
+  }
+}
 
 function loadData() {
   Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
@@ -44,7 +67,6 @@ function loadData() {
     hotel = new Hotel(data[0], data[1], data[2]);
     hotel.getAllRooms();
     hotel.getAllBookings();
-    getCustomer(5);
     searchForm[0].min = dayjs().format('YYYY-MM-DD');
   })
 }
@@ -52,6 +74,7 @@ function loadData() {
 function getCustomer(id) {
   loadSingleCustomer(id)
   .then(customerData => {
+    MicroModal.close('login-modal');
     currentCustomer = new Customer(customerData);
     displayBookingsInformation();
   })
