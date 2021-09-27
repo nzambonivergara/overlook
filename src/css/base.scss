@@ -5,6 +5,7 @@
 html {
   @include flex-column();
   height: 100%;
+  width: 100vw;
 }
 
 body {
@@ -56,9 +57,9 @@ body {
   @include flex-cross-axis-center();
   @include square(200px, 750px);
   justify-content: center;
-  margin-right: 100px;
-  margin-left:100px;
-  margin-top: 70px;
+  // margin-right: 100px;
+  // margin-left:100px;
+  margin: 70px 100px 0 100px;
   border-radius: 10px;
 
   h2 {
@@ -155,17 +156,24 @@ button {
   }
 }
 
-.available-rooms-container {
+.search-results-container {
   @include flex-column();
   @include flex-cross-axis-center();
+  width: 1100px;
 
   .available-rooms-container__rooms-container {
     display: flex;
     justify-content: center;
     gap: 30px;
-    width: 900px;
-    overflow-x: scroll;
-    padding: 0 125px;
+    width: 1000px;
+    overflow-x: auto;
+    padding-left: 75px;
+
+    ul {
+      @include bold-font();
+      list-style-type: none;
+      padding-left: 10px;
+    }
   }
 }
 
