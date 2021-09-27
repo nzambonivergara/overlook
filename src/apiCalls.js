@@ -40,9 +40,16 @@ function addNewBookings(userId, date, roomNumber) {
       'Content-Type': 'application/json'
     }
   })
-  .then(response => response.json())
+  .then(response => checkResponse(response))
   .then(data => data.newBooking)
   .catch(error => console.log(error))
+}
+
+function checkResponse(response) {
+  if (!response.ok) {
+    throw new Error('Please enter valid input.')
+  }
+  return response.json();
 }
 
 export {
