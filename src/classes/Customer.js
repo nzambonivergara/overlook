@@ -38,7 +38,7 @@ class Customer {
       const checkOut = dayjs(booking.checkInDate)
       .add(booking.duration, 'day')
 
-      return today.isBetween(booking.checkInDate, checkOut)
+      return today.isBetween(booking.checkInDate, checkOut, null, '[]')
     }).map(booking => `Date: ${booking.checkInDate} Room Number: ${booking.roomNumber}`)
 
     if (presentBookings.length) {
@@ -71,7 +71,7 @@ class Customer {
 
       dates.push(addDay);
     }
-  
+
     const bookings = dates.map(date => {
      return {
         userID: this.id,

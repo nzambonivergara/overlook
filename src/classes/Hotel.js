@@ -25,9 +25,9 @@ class Hotel {
     return this.rooms.filter(room => {
       const bookingWithThisRoom = this.bookings.find(booking => {
         const checkOut = dayjs(checkIn)
-        .add(duration - 1, 'day');
+        .add(duration, 'day');
 
-        return booking.roomNumber === room.number && dayjs(booking.checkInDate).isBetween(checkIn, checkOut)
+        return booking.roomNumber === room.number && dayjs(booking.checkInDate).isBetween(checkIn, checkOut, null, '[]')
       });
 
       return !bookingWithThisRoom;

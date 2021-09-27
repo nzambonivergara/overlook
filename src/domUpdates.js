@@ -1,10 +1,14 @@
 const domUpdates = {
-  form: document.getElementById('searchForm'),
+  searchForm: document.getElementById('searchForm'),
 
   searchResultsContainer: document.getElementById('searchResultsContainer'),
 
+  availableRoomsTitle: document.getElementById('availableRoomsTitle'),
+
   availableRoomsContainer:
   document.getElementById('availableRoomsContainer'),
+
+  noRoomsMessage:  document.getElementById('noRoomsMessage'),
 
   bookingsContainer: document.getElementById('bookingsContainer'),
 
@@ -16,6 +20,10 @@ const domUpdates = {
 
   totalSpent: document.getElementById('totalSpent'),
 
+  confirmationMessage: document.getElementById('confirmation-message'),
+
+  confirmationButton: document.getElementById('confirmBookingButton'),
+
   show(element) {
     element.classList.remove('hidden');
   },
@@ -25,6 +33,7 @@ const domUpdates = {
   },
 
   renderBookings(container, bookings) {
+    container.innerHTML = '';
     bookings.forEach(booking => {
       container.innerHTML += '<li>' + booking + '</li>'
     })
@@ -39,7 +48,7 @@ const domUpdates = {
         <img src=${room.imageSrc}>
         <ul>
           <li>Room #${room.number}</li>
-          <li>Room type: ${room.roomType}</li>
+          <li>Type: ${room.roomType}</li>
           <li>Bidet: ${bidet}</li>
           <li>Bed size: ${room.bedSize}</li>
           <li>Number of beds: ${room.numBeds}</li>
@@ -48,6 +57,17 @@ const domUpdates = {
         <button class="book-button">BOOK NOW</button>
       </article>`
     })
+  },
+
+  renderModalInformation(container, roomInfo) {
+    container.innerHTML = `
+    <p>Check In: ${searchForm[0].value}</p>
+    <p>Number of nights: ${searchForm[1].value}</p>
+    <p>Room #: ${roomInfo.number}</p>
+    <p>Cost per night: $${roomInfo.costPerNight}</p>
+    <p>Click YES, to confirm and update your bookings.</p>
+    `
+    MicroModal.show('confirm-booking-modal');
   }
 
 }

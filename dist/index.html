@@ -57,109 +57,28 @@
         </div>
         <h3>Total Spent: $<span id="totalSpent">1500</span></h3>
       </section>
-      <section class="available-rooms-container hidden" id="searchResultsContainer">
-        <h2>Available Rooms</h2>
-        <div class="available-rooms-container__rooms-container" id="availableRoomsContainer">
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-          <article class="rooms-container__room-card">
-            <img src="./images/full-bed.jpg">
-            <ul>
-              <li>Room Number: 2</li>
-              <li>Room type: Suite</li>
-              <li>Bidet: yes</li>
-              <li>Bed size: full</li>
-              <li>Number of beds: 2</li>
-              <li>Cost per night: $477.38</li>
-            </ul>
-            <button class="book-button" id="bookButton">BOOK NOW</button>
-          </article>
-        </div>
+      <section class="search-results-container hidden" id="searchResultsContainer">
+        <h2 id="availableRoomsTitle">Available Rooms</h2>
+        <div class="available-rooms-container__rooms-container" id="availableRoomsContainer"></div>
+        <h2 id="noRoomsMessage">Sorry, we were unable to find rooms. Please adjust your search.</h2>
       </section>
     </main>
+    <div class="modal" id="confirm-booking-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" aria-modal="true" aria-labelledby="confirm-booking" >
+          <header class="modal__header">
+            <h2 class="modal__title" id="confirm-booking">Confirm Your Booking</h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="confirmation-message">
+          </main>
+          <footer class="modal__footer">
+            <button class="modal__button" id="confirmBookingButton" aria-label="Confirm booking">YES</button>
+            <button class="modal__button" data-micromodal-close aria-label="Close this dialog window">CANCEL</button>
+          </footer>
+        </div>
+      </div>
+    </div>
     <script src="bundle.js"></script>
-
   </body>
 </html>
