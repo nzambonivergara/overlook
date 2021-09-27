@@ -1,5 +1,11 @@
 import './css/base.scss';
-import { loadRooms, loadAllCustomers, loadSingleCustomer, loadBookings, addNewBookings } from './apiCalls';
+import {
+  loadRooms,
+  loadAllCustomers,
+  loadSingleCustomer,
+  loadBookings,
+  addNewBookings
+} from './apiCalls';
 import './images/twin-bed.jpg';
 import './images/full-bed.jpg';
 import './images/queen-bed.jpg';
@@ -24,7 +30,7 @@ const {
   confirmationMessage,
   confirmationButton,
   upcomingBookingsList,
-  presentBookings,
+  presentBookingsList,
   pastBookingsList,
   bookingsButton,
   hide,
@@ -71,21 +77,21 @@ function logOut() {
 
 function loadData() {
   Promise.all([loadRooms(), loadBookings(), loadAllCustomers()])
-  .then(data => {
-    hotel = new Hotel(data[0], data[1], data[2]);
-    hotel.getAllRooms();
-    hotel.getAllBookings();
-    searchForm[0].min = dayjs().format('YYYY-MM-DD');
-  })
+    .then(data => {
+      hotel = new Hotel(data[0], data[1], data[2]);
+      hotel.getAllRooms();
+      hotel.getAllBookings();
+      searchForm[0].min = dayjs().format('YYYY-MM-DD');
+    })
 }
 
 function getCustomer(id) {
   loadSingleCustomer(id)
-  .then(customerData => {
-    MicroModal.close('login-modal');
-    currentCustomer = new Customer(customerData);
-    displayBookingsInformation();
-  })
+    .then(customerData => {
+      MicroModal.close('login-modal');
+      currentCustomer = new Customer(customerData);
+      displayBookingsInformation();
+    })
 }
 
 function displayBookingsInformation() {
@@ -94,7 +100,8 @@ function displayBookingsInformation() {
   const presentBookings = currentCustomer.getPresentBookings();
   const upcomingBookings = currentCustomer.getUpcomingBookings();
 
-  totalSpent.innerText = currentCustomer.calculateTotalSpent(hotel.rooms).toFixed(2);
+  totalSpent.innerText =
+  currentCustomer.calculateTotalSpent(hotel.rooms).toFixed(2);
   renderBookings(pastBookingsList, pastBookings);
   renderBookings(presentBookingsList, presentBookings);
   renderBookings(upcomingBookingsList, upcomingBookings);
@@ -107,10 +114,12 @@ function searchRooms(event) {
 
   const roomContainer = document.getElementById('availableRoomsContainer')
 
-  let availableRooms = hotel.getAvailableRooms(searchForm[0].value, searchForm[1].value);
+  let availableRooms =
+  hotel.getAvailableRooms(searchForm[0].value, searchForm[1].value);
 
   if (searchForm[2].value !== 'all') {
-    availableRooms = hotel.filterRoomsByType(availableRooms, searchForm[2].value)
+    availableRooms =
+    hotel.filterRoomsByType(availableRooms, searchForm[2].value)
   }
 
   if (availableRooms.length) {
@@ -145,15 +154,16 @@ function updateBookings(bookings) {
 function requestBookings(event) {
   const roomNumber = parseInt(event.target.value);
 
-  const bookingsRequest = currentCustomer.returnBookingsRequest(searchForm[0].value, searchForm[1].value, roomNumber);
+  const bookingsRequest =
+  currentCustomer.returnBookingsRequest(searchForm[0].value, searchForm[1].value, roomNumber);
 
   updateBookings(bookingsRequest)
-  .then(response => {
-    hotel.addNewBookings(response);
+    .then(response => {
+      hotel.addNewBookings(response);
 
-    MicroModal.close('confirm-booking-modal');
-    displayBookings();
-  })
+      MicroModal.close('confirm-booking-modal');
+      displayBookings();
+    })
 }
 
 function displayBookings() {

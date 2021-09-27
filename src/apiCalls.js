@@ -40,9 +40,9 @@ function addNewBookings(userId, date, roomNumber) {
       'Content-Type': 'application/json'
     }
   })
-  .then(response => checkResponse(response))
-  .then(data => data.newBooking)
-  .catch(error => console.log(error))
+    .then(response => checkResponse(response))
+    .then(data => data.newBooking)
+    .catch(error => console.log(error))
 }
 
 function checkResponse(response) {

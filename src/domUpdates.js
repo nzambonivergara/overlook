@@ -13,7 +13,7 @@ const domUpdates = {
 
   availableRoomsContainer: document.getElementById('availableRoomsContainer'),
 
-  noRoomsMessage:  document.getElementById('noRoomsMessage'),
+  noRoomsMessage: document.getElementById('noRoomsMessage'),
 
   bookingsContainer: document.getElementById('bookingsContainer'),
 
