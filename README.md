@@ -36,7 +36,7 @@ Welcome to the Overlook Hotel! This website allows users to login and see their 
 
 ### Backend Set Up
 
-1. Go to this [repository](https://github.com/turingschool-examples/overlook-api)
+1. Go to this [repository](https://github.com/turingschool-examples/overlook-api).
 2. Follow Set Up instructions.
 
 ### Frontend Set Up
@@ -65,7 +65,7 @@ Welcome to the Overlook Hotel! This website allows users to login and see their 
 
 - Planning out the classes and their functionality was an interesting challenge and time consuming, but I found that it was worth the planning time.
 - Planning out project with Github Project Board and anticipating how long each task will take to complete.
-- Error handling and ensuring that the user cannot POST the wrong data
+- Error handling and ensuring that the user cannot POST incorrect data.
 
 ## Future Features
 
