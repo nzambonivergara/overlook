@@ -3,8 +3,12 @@ const domUpdates = {
 
   searchResultsContainer: document.getElementById('searchResultsContainer'),
 
+  availableRoomsTitle: document.getElementById('availableRoomsTitle'),
+
   availableRoomsContainer:
   document.getElementById('availableRoomsContainer'),
+
+  noRoomsMessage:  document.getElementById('noRoomsMessage'),
 
   bookingsContainer: document.getElementById('bookingsContainer'),
 
@@ -65,6 +69,7 @@ const domUpdates = {
     `
     MicroModal.show('confirm-booking-modal');
   }
+
 }
 
 
