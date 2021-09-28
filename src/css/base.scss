@@ -237,7 +237,7 @@ button {
 
 .modal__title {
   box-sizing: border-box;
-  color: $secondary-color;
+  color: $primary-color;
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 0;
@@ -269,16 +269,17 @@ button {
 }
 
 .modal__button {
-	color: $white;
-	background-color: $secondary-color;
+  @include bold-font();
+	color: $primary-color;
+	background-color: $white;
   border: 1px solid $primary-color;
 	border-radius: 4px;
 	margin: 5px;
 	transition: $primary-transition;
 
   &:hover {
-    background-color: $white;
-    color: $primary-color;
+    background-color: $secondary-color;
+    color: $white;
   }
 }
 

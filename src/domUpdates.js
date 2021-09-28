@@ -31,6 +31,8 @@ const domUpdates = {
 
   bookingsButton: document.getElementById('bookingsButton'),
 
+  confirmationModalFooter: document.getElementById('confirmationModalFooter'),
+
   show(element) {
     element.classList.remove('hidden');
   },
@@ -66,8 +68,8 @@ const domUpdates = {
     })
   },
 
-  renderModalInformation(container, roomInfo) {
-    container.innerHTML = `
+  renderModalInformation(roomInfo) {
+    domUpdates.confirmationMessage.innerHTML = `
     <p>Check In: ${searchForm[0].value}</p>
     <p>Number of nights: ${searchForm[1].value}</p>
     <p>Room #: ${roomInfo.number}</p>
@@ -75,6 +77,44 @@ const domUpdates = {
     <p>Click YES, to confirm and update your bookings.</p>
     `
     MicroModal.show('confirm-booking-modal');
+    domUpdates.show(confirmationModalFooter);
+  },
+
+  displayErrorMessage() {
+    MicroModal.show('connection-error-modal');
+  },
+
+  confirmBooking() {
+    domUpdates.confirmationMessage.innerHTML =
+    '<p>Your booking has been made!</p>';
+
+    domUpdates.hide(confirmationModalFooter);
+  },
+
+  displayAvailableRooms(availableRooms) {
+    domUpdates.hide(bookingsContainer);
+    domUpdates.show(searchResultsContainer);
+
+    if (availableRooms.length) {
+      domUpdates.renderAvailableRooms(availableRooms);
+      domUpdates.show(availableRoomsTitle);
+      domUpdates.show(availableRoomsContainer);
+      domUpdates.hide(noRoomsMessage);
+    } else {
+      domUpdates.show(noRoomsMessage);
+      domUpdates.hide(availableRoomsTitle);
+      domUpdates.hide(availableRoomsContainer);
+    }
+  },
+
+  displayBookings(bookings) {
+    domUpdates.hide(searchResultsContainer);
+    domUpdates.show(bookingsContainer);
+    searchForm.reset();
+
+    domUpdates.renderBookings(pastBookingsList, bookings.past);
+    domUpdates.renderBookings(presentBookingsList, bookings.present);
+    domUpdates.renderBookings(upcomingBookingsList, bookings.upcoming);
   }
 }
 

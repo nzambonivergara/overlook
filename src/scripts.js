@@ -37,7 +37,10 @@ const {
   show,
   renderBookings,
   renderAvailableRooms,
-  renderModalInformation
+  renderModalInformation,
+  confirmBooking,
+  displayAvailableRooms,
+  displayBookings
 } = domUpdates;
 
 let hotel;
@@ -48,7 +51,7 @@ loginForm.addEventListener('submit', validateLogin);
 searchForm.addEventListener('submit', searchRooms);
 availableRoomsContainer.addEventListener('click', bookRoom);
 confirmationButton.addEventListener('click', requestBookings);
-bookingsButton.addEventListener('click', displayBookings);
+bookingsButton.addEventListener('click', displayBookingsInformation);
 logoutButton.addEventListener('click', logOut);
 
 function displayLogin() {
@@ -96,42 +99,30 @@ function getCustomer(id) {
 
 function displayBookingsInformation() {
   currentCustomer.getBookings(hotel.bookings);
-  const pastBookings = currentCustomer.getPastBookings();
-  const presentBookings = currentCustomer.getPresentBookings();
-  const upcomingBookings = currentCustomer.getUpcomingBookings();
+  const bookings = {
+    past: currentCustomer.getPastBookings(),
+    present: currentCustomer.getPresentBookings(),
+    upcoming: currentCustomer.getUpcomingBookings()
+  };
+
+  displayBookings(bookings);
 
   totalSpent.innerText =
   currentCustomer.calculateTotalSpent(hotel.rooms).toFixed(2);
-  renderBookings(pastBookingsList, pastBookings);
-  renderBookings(presentBookingsList, presentBookings);
-  renderBookings(upcomingBookingsList, upcomingBookings);
 }
 
 function searchRooms(event) {
   event.preventDefault();
-  hide(bookingsContainer);
-  show(searchResultsContainer);
-
-  const roomContainer = document.getElementById('availableRoomsContainer')
 
   let availableRooms =
   hotel.getAvailableRooms(searchForm[0].value, searchForm[1].value);
 
   if (searchForm[2].value !== 'all') {
     availableRooms =
-    hotel.filterRoomsByType(availableRooms, searchForm[2].value)
+    hotel.filterRoomsByType(availableRooms, searchForm[2].value);
   }
 
-  if (availableRooms.length) {
-    renderAvailableRooms(availableRooms);
-    show(availableRoomsTitle);
-    show(availableRoomsContainer);
-    hide(noRoomsMessage);
-  } else {
-    show(noRoomsMessage);
-    hide(availableRoomsTitle);
-    hide(roomContainer);
-  }
+  displayAvailableRooms(availableRooms);
 }
 
 function bookRoom(event) {
@@ -139,9 +130,10 @@ function bookRoom(event) {
   const roomNumber = parseInt(target.parentNode.id);
 
   if (target.classList.contains('book-button')) {
-    const roomInfo = hotel.rooms[roomNumber - 1]
-    renderModalInformation(confirmationMessage, roomInfo);
+    const room = hotel.rooms[roomNumber - 1];
     confirmationButton.value = roomNumber;
+
+    renderModalInformation(room);
   }
 }
 
@@ -153,22 +145,13 @@ function updateBookings(bookings) {
 
 function requestBookings(event) {
   const roomNumber = parseInt(event.target.value);
-
   const bookingsRequest =
   currentCustomer.returnBookingsRequest(searchForm[0].value, searchForm[1].value, roomNumber);
 
   updateBookings(bookingsRequest)
     .then(response => {
+      confirmBooking();
       hotel.addNewBookings(response);
-
-      MicroModal.close('confirm-booking-modal');
-      displayBookings();
+      displayBookingsInformation();
     })
-}
-
-function displayBookings() {
-  hide(searchResultsContainer);
-  show(bookingsContainer);
-  searchForm.reset();
-  displayBookingsInformation();
 }

@@ -1,31 +1,44 @@
+import domUpdates from './domUpdates';
 const apiEndpoint = 'http://localhost:3001';
 
 function loadRooms() {
   return fetch(`${apiEndpoint}/api/v1/rooms`)
     .then(response => response.json())
     .then(data => data.rooms)
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+      domUpdates.displayErrorMessage();
+    })
 }
 
 function loadAllCustomers() {
   return fetch(`${apiEndpoint}/api/v1/customers`)
     .then(response => response.json())
     .then(data => data.customers)
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+      domUpdates.displayErrorMessage();
+    })
 }
 
 function loadSingleCustomer(customerID) {
   return fetch(`${apiEndpoint}/api/v1/customers/${customerID}`)
     .then(response => response.json())
     .then(data => data)
-    .catch(error => console.error(error))
+    .catch(error => {
+      console.error(error);
+      domUpdates.displayErrorMessage();
+    })
 }
 
 function loadBookings() {
   return fetch(`${apiEndpoint}/api/v1/bookings`)
     .then(response => response.json())
     .then(data => data.bookings)
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.error(error);
+      domUpdates.displayErrorMessage();
+    })
 }
 
 function addNewBookings(userId, date, roomNumber) {
@@ -42,7 +55,10 @@ function addNewBookings(userId, date, roomNumber) {
   })
     .then(response => checkResponse(response))
     .then(data => data.newBooking)
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.error(error);
+      domUpdates.displayErrorMessage();
+    })
 }
 
 function checkResponse(response) {
