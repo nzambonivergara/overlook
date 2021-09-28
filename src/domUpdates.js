@@ -75,7 +75,12 @@ const domUpdates = {
     <p>Click YES, to confirm and update your bookings.</p>
     `
     MicroModal.show('confirm-booking-modal');
+  },
+
+  displayErrorMessage() {
+    MicroModal.show('connection-error-modal');
   }
+
 }
 
 
