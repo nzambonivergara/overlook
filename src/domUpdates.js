@@ -49,10 +49,10 @@ const domUpdates = {
   },
 
   renderAvailableRooms(rooms) {
-    domUpdates.availableRoomsContainer.innerHTML = '';
+    availableRoomsContainer.innerHTML = '';
     rooms.forEach(room => {
       const bidet = room.hasBidet ? 'yes' : 'no';
-      domUpdates.availableRoomsContainer.innerHTML +=
+      availableRoomsContainer.innerHTML +=
       `<article class="rooms-container__room-card" id=${room.number} tabindex="0">
         <img src=${room.imageSrc} alt="${room.bedSize} bed bedroom">
         <ul>
@@ -70,14 +70,14 @@ const domUpdates = {
 
   renderModalInformation(roomInfo) {
     domUpdates.confirmationMessage.innerHTML = `
-    <p>Check In: ${domUpdates.searchForm[0].value}</p>
-    <p>Number of nights: ${domUpdates.searchForm[1].value}</p>
+    <p>Check In: ${searchForm[0].value}</p>
+    <p>Number of nights: ${searchForm[1].value}</p>
     <p>Room #: ${roomInfo.number}</p>
     <p>Cost per night: $${roomInfo.costPerNight}</p>
     <p>Click YES, to confirm and update your bookings.</p>
     `
     MicroModal.show('confirm-booking-modal');
-    domUpdates.show(domUpdates.confirmationModalFooter);
+    domUpdates.show(confirmationModalFooter);
   },
 
   displayErrorMessage() {
@@ -88,33 +88,33 @@ const domUpdates = {
     domUpdates.confirmationMessage.innerHTML =
     '<p>Your booking has been made!</p>';
 
-    domUpdates.hide(domUpdates.confirmationModalFooter);
+    domUpdates.hide(confirmationModalFooter);
   },
 
   displayAvailableRooms(availableRooms) {
-    domUpdates.hide(domUpdates.bookingsContainer);
-    domUpdates.show(domUpdates.searchResultsContainer);
+    domUpdates.hide(bookingsContainer);
+    domUpdates.show(searchResultsContainer);
 
     if (availableRooms.length) {
       domUpdates.renderAvailableRooms(availableRooms);
-      domUpdates.show(domUpdates.availableRoomsTitle);
-      domUpdates.show(domUpdates.availableRoomsContainer);
-      domUpdates.hide(domUpdates.noRoomsMessage);
+      domUpdates.show(availableRoomsTitle);
+      domUpdates.show(availableRoomsContainer);
+      domUpdates.hide(noRoomsMessage);
     } else {
-      domUpdates.show(domUpdates.noRoomsMessage);
-      domUpdates.hide(domUpdates.availableRoomsTitle);
-      domUpdates.hide(domUpdates.availableRoomsContainer);
+      domUpdates.show(noRoomsMessage);
+      domUpdates.hide(availableRoomsTitle);
+      domUpdates.hide(availableRoomsContainer);
     }
   },
 
   displayBookings(bookings) {
-    domUpdates.hide(domUpdates.searchResultsContainer);
-    domUpdates.show(domUpdates.bookingsContainer);
-    domUpdates.searchForm.reset();
+    domUpdates.hide(searchResultsContainer);
+    domUpdates.show(bookingsContainer);
+    searchForm.reset();
 
-    domUpdates.renderBookings(domUpdates.pastBookingsList, bookings.past);
-    domUpdates.renderBookings(domUpdates.presentBookingsList, bookings.present);
-    domUpdates.renderBookings(domUpdates.upcomingBookingsList, bookings.upcoming);
+    domUpdates.renderBookings(pastBookingsList, bookings.past);
+    domUpdates.renderBookings(presentBookingsList, bookings.present);
+    domUpdates.renderBookings(upcomingBookingsList, bookings.upcoming);
   }
 }
 
