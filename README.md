@@ -10,7 +10,7 @@ Welcome to the Overlook Hotel! This website allows users to login and see their 
 
 [Watch the application in action!](https://loom.com/share/334e8de9e4e34d2b89fd2c0734b652c0)
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/334e8de9e4e34d2b89fd2c0734b652c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<img width="1432" alt="login page" src="https://www.loom.com/embed/334e8de9e4e34d2b89fd2c0734b652c0">
 
 <img width="1432" alt="login page" src="https://user-images.githubusercontent.com/83611094/135144774-ad53dcf5-e4b5-4283-bd2e-45ac830c2a64.png">
 
