@@ -4,13 +4,11 @@
 
 ## Abstract
 
-Welcome to the Overlook Hotel! This website allows users to login and see their past, current, and upcoming bookings. Users can search for available rooms in upcoming dates and filter those by room type. After browsing the rooms, users can add a new booking. After confirmation, they will go back to their updated bookings dashboard.
+Welcome to the Overlook Hotel! This website allows users to login and access their customer dashboard, which includes their past, current, and upcoming bookings. Users can search for available rooms in upcoming dates and filter those by room type. After browsing the rooms, users can add a new booking. After confirmation, they will go back to their updated bookings dashboard.
 
 ## Snapshots of the Application
 
 [Watch the application in action!](https://loom.com/share/334e8de9e4e34d2b89fd2c0734b652c0)
-
-<img width="1432" alt="login page" src="https://www.loom.com/embed/334e8de9e4e34d2b89fd2c0734b652c0">
 
 <img width="1432" alt="login page" src="https://user-images.githubusercontent.com/83611094/135144774-ad53dcf5-e4b5-4283-bd2e-45ac830c2a64.png">
 
