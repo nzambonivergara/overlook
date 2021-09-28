@@ -8,15 +8,17 @@ Welcome to the Overlook Hotel! This website allows users to login and see their 
 
 ## Snapshots of the Application
 
-[Watch the application in action!](https://www.loom.com/share/043a4b1145b842dba1ffcd479016ad13)
+[Watch the application in action!](https://loom.com/share/334e8de9e4e34d2b89fd2c0734b652c0)
 
-![Login Page](https://user-images.githubusercontent.com/83611094/135000497-d139b4e7-18e9-47d7-a2e3-75cee91d87b2.png)
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/334e8de9e4e34d2b89fd2c0734b652c0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
-![Overlook Hotel Dashboard](https://user-images.githubusercontent.com/83611094/135000187-4de01694-8ca6-40d3-8982-a1c437fd2bb5.png)
+<img width="1432" alt="login page" src="https://user-images.githubusercontent.com/83611094/135144774-ad53dcf5-e4b5-4283-bd2e-45ac830c2a64.png">
 
-![Search Page](https://user-images.githubusercontent.com/83611094/135000531-896ab327-686e-4cf8-9d8f-3a6b8dc94d36.png)
+<img width="1434" alt="customer dashboard" src="https://user-images.githubusercontent.com/83611094/135144879-fbe702c2-0cf5-42ad-9b98-eb9a6453f3ac.png">
 
-![Confirmation Step](https://user-images.githubusercontent.com/83611094/135000622-d75c68cf-aa7f-404f-8066-c69387991fd9.png)
+<img width="1434" alt="rooms search results" src="https://user-images.githubusercontent.com/83611094/135144981-77859b24-502c-4caa-bd45-814f4c494bd5.png">
+
+<img width="1431" alt="booking confirmation step" src="https://user-images.githubusercontent.com/83611094/135145128-8470d521-5b5c-4b6a-889c-e76ef5dedfec.png">
 
 ## Technologies
 
