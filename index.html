@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlook Hotel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Raleway:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="header__main-title">
+        <span class="material-icons header__icon" aria-label="Overlook hotel logo">grass</span>
+        Overlook</h1>
+      <button class="log-out-button" id="logoutButton">
+        <p>log out</p>
+        <span class="material-icons" aria-label="Logout icon">logout</span>
+      </button>
+    </header>
+    <main class="main">
+      <section class="search-form-container" id="searchFormContainer">
+        <h2>Book your next stay: </h2>
+        <form class="search-form-container__form" role="search" id="searchForm">
+          <div>
+            <label for="checkIn">Check In:</label>
+            <input type="date" id="checkIn" min="2021-09-24" required>
+            <label for="numOfNights">Number Of Nights: </label>
+            <input type="number" id="numOfNights" min=1 max=30 value="1" required>
+            <label for="room-type-select">Select a room type:</label>
+            <select name="room-type" id="room-type-select" required>
+              <option value="all">-All-</option>
+              <option value="single room">Single Room</option>
+              <option value="suite">Suite</option>
+              <option value="junior suite">Junior Suite</option>
+              <option value="residential suite">Residential Suite</option>
+            </select>
+          </div>
+          <div>
+            <button type="submit" class="form__search-button">search</button>
+          </div>
+        </form>
+      </section>
+      <section class="bookings-container" id="bookingsContainer">
+        <div>
+          <article class="bookings-container__upcoming-bookings">
+            <h2>Your Upcoming Bookings</h2>
+            <ul id="upcomingBookingsList"></ul>
+          </article>
+          <article class="bookings-container__present-bookings">
+            <h2>Your Present Bookings</h2>
+            <ul id="presentBookingsList"></ul>
+          </article>
+          <article class="bookings-container__past-bookings">
+            <h2>Your Past Bookings</h2>
+            <ul id="pastBookingsList"></ul>
+          </article>
+        </div>
+        <h3>Total Spent: $<span id="totalSpent"></span></h3>
+      </section>
+      <section class="search-results-container hidden" id="searchResultsContainer">
+        <h2 id="availableRoomsTitle">Available Rooms</h2>
+        <div class="search-results-container__rooms-container" id="availableRoomsContainer"></div>
+        <h2 id="noRoomsMessage">Sorry, we were unable to find rooms. Please adjust your search.</h2>
+        <button class="bookings-button" id="bookingsButton">
+          <span class="material-icons"  aria-label="Back to my bookings">reply</span>
+        </button>
+      </section>
+    </main>
+    <div class="modal" id="confirm-booking-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div class="modal__container" aria-modal="true" aria-labelledby="confirm-booking" >
+          <header class="modal__header">
+            <h2 class="modal__title" id="confirm-booking">Booking Confirmation</h2>
+            <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
+          </header>
+          <main class="modal__content" id="confirmation-message">
+          </main>
+          <footer class="modal__footer" id="confirmationModalFooter">
+            <button class="modal__button" id="confirmBookingButton" aria-label="Confirm booking">YES</button>
+            <button class="modal__button" data-micromodal-close aria-label="Close this dialog window">CANCEL</button>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="login-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1">
+        <div class="modal__container login__modal" aria-modal="true" aria-labelledby="login-modal" >
+          <header class="modal__header">
+            <h2 class="modal__title">WELCOME TO THE OVERLOOK HOTEL!</h2>
+          </header>
+          <main class="modal__content">
+            <form class="login-form" id="loginForm">
+              <div>
+                <label for="username">Username: </label>
+                <input type="text" id="username" required>
+              </div>
+              <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" minlength="12" maxlength="12" required>
+              </div>
+              <button type="submit" class="modal__button" id="loginButton">LOG IN</button>
+              <p class="error-message hidden" id="loginErrorMessage">**Please enter a valid username or password.**</p>
+            </form>
+          </main>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="connection-error-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1">
+        <div class="modal__container" aria-modal="true" aria-labelledby="error-modal" >
+          <header class="modal__header">
+            <h2 class="modal__title" id="error-modal">OOPS! Something went wrong!</h2>
+            <span class="material-icons">network_check</span>
+          </header>
+          <main class="modal__content">
+            <p>Check your connection and reload the page!</p>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
