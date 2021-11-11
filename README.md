@@ -2,6 +2,8 @@
 
 - [Project Spec](https://frontend.turing.edu/projects/overlook.html)
 
+View Deployed Site [Here](https://nzambonivergara.github.io/overlook/)
+
 ## Abstract
 
 Welcome to the Overlook Hotel! This website allows users to login and access their customer dashboard, which includes their past, current, and upcoming bookings. Users can search for available rooms in upcoming dates and filter those by room type. After browsing the rooms, users can add a new booking. After confirmation, they will go back to their updated bookings dashboard.
