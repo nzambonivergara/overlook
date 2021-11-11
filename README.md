@@ -2,7 +2,7 @@
 
 - [Project Spec](https://frontend.turing.edu/projects/overlook.html)
 
-View Deployed Site [Here](https://nzambonivergara.github.io/overlook/)
+View Deployed Site [Here](https://nzambonivergara.github.io/overlook/) and enter `customer22` for the username and `overlook2021` for the password.
 
 ## Abstract
 
