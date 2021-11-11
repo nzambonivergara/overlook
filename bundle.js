@@ -449,7 +449,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _domUpdates__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7);
 
-const apiEndpoint = 'http://localhost:3001';
+const apiEndpoint = 'https://overlookdata.herokuapp.com';
 
 function loadRooms() {
   return fetch(`${apiEndpoint}/api/v1/rooms`)
