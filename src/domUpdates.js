@@ -53,7 +53,7 @@ const domUpdates = {
     rooms.forEach(room => {
       const bidet = room.hasBidet ? 'yes' : 'no';
       availableRoomsContainer.innerHTML +=
-      `<article class="rooms-container__room-card" id=${room.number} tabindex="0">
+      `<article class="rooms-container__room-card" id=${room.number}>
         <img src=${room.imageSrc} alt="${room.bedSize} bed bedroom">
         <ul>
           <li>Room #${room.number}</li>
