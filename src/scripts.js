@@ -59,7 +59,7 @@ function displayLogin() {
   loadData();
 }
 
-function validateLogin() {
+function validateLogin(event) {
   event.preventDefault();
   const username = loginForm[0].value;
   const password = loginForm[1].value;
@@ -70,7 +70,6 @@ function validateLogin() {
     getCustomer(id);
   } else {
     show(loginErrorMessage);
-    loginForm.reset();
   }
 }
 
