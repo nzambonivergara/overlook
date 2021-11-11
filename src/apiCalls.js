@@ -1,5 +1,5 @@
 import domUpdates from './domUpdates';
-const apiEndpoint = 'http://localhost:3001';
+const apiEndpoint = 'https://overlookdata.herokuapp.com';
 
 function loadRooms() {
   return fetch(`${apiEndpoint}/api/v1/rooms`)
